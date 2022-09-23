@@ -1,0 +1,37 @@
+#: import utils kivy.utils
+
+<Soloplayer>:
+	
+	FloatLayout:
+		canvas.before:
+			Rectangle:
+				source: 'imgs/bg_img.png'
+				size: self.size
+				pos: self.pos
+		Button:
+			pos_hint: {"x":.01, "top":.99}
+			size_hint: [None, None]
+			height: 40
+			width: 40
+			bold: True
+			background_normal: 'imgs/back.png'
+			on_release:
+				app.change_screen('home', 'down', 'solo')
+		Button:
+			pos_hint: {"x":.13, "top":.99}
+			size_hint: [None, None]
+			height: 40
+			width: 40
+			bold: True
+			background_normal: 'imgs/loop.png'
+			on_release:
+				app.reset_net('solo')
+				app.execute_show_options("solo")
+		BoxLayout:
+			id: box
+			orientation: "vertical"
+			spacing:5
+			size_hint: [None, None]
+			width: 300
+			height:300
+			pos_hint: {'center_x':0.5, 'center_y':0.6}
